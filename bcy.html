@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso CSS3 Desde Cero</title>
+    <link rel="shortcut icon" href="assets/fav.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+
+:root{
+    --color-primary: #4b377c;
+    --color-title: #000;
+    --align-title: left;
+    --padding-container: 100px 0;
+    --width-container: 90%;
+    --max-width-container: 1200px;
+    --color-btn: #000000;
+    --text-btn: #fff;
+    --padding-btn: 20px 35px;
+    --height-shape:18em;
+}
+
+
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: #E5E5F7;
+    opacity: 1;
+    background-image:  radial-gradient(#202022 0.7000000000000001px, transparent 0.7000000000000001px), radial-gradient(#1a1a1b 0.7000000000000001px, #E5E5F7 0.7000000000000001px);
+    background-size: 28px 28px;
+    background-position: 0 0,14px 14px;
+}
+
+.container{
+    width: 90%;
+    max-width: var(--max-width-container);
+    padding: var(--padding-container);
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.hero{
+    height: 100vh;
+    min-height: 500px;
+    position: relative;
+    --padding-container: 0;
+}
+
+.hero::after{
+    content: "";
+    display: block;
+    position: absolute;
+    height: var(--height-shape);
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    z-index: -1;
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+
+}
+
+.hero__container{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 3fr 2fr;
+    place-items: center;
+    gap: 20px;
+}
+
+.hero__title{
+    font-size: 4rem;
+}
+
+.hero__copy{
+    font-size: 1.2rem;
+    margin: 25px 0;
+}
+
+.hero__cta{
+    display: inline-block;
+    background: var(--color-btn);
+    color: #fff;
+    padding: var(--padding-btn);
+    text-align: center;
+    text-decoration: none;
+}
+
+.hero__img{
+    width: 95%;
+}
+
+/* Main */
+
+.main{
+    background: #fff;
+}
+
+.title{
+    font-size: 2.5rem;
+    text-align: var(--align-title);
+    color: var(--color-title);
+}
+
+.title--border::after{
+    content: "";
+    display: block;
+    width: 100px;
+    margin-top: 20px;
+    height: 4px;
+    background-color: var(--color-primary);
+}
+
+
+.cta{
+    display: inline-block;
+    background: var(--color-btn);
+    color: var(--text-btn);
+    padding: var(--padding-btn);
+    text-align: center;
+    text-decoration: none;
+}
+
+
+/* Instrcutor */
+
+.instructor{
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+    --padding-container: 30px 0 60px;
+}
+
+.instructor__container{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.instructor__name{
+    margin: 20px 0;
+}
+
+.instructor__tag{
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.instructor__paragraph{
+    text-align: left;
+    line-height: 1.5;
+    font-style: italic;
+    color: #615a5a;
+}
+
+.instructor__img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* about */
+
+.about{
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    place-items: center;
+}
+
+.about__course{
+    width: 90%;
+}
+
+.about__paragraph{
+    margin: 20px 0;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+.about__picture{
+    text-align: center;
+}
+
+.about__img{
+    width: 95%;
+}
+
+/* Card */
+
+.card{
+    background: #f2f2f2;
+}
+
+.card__copy{
+    margin-top: 20px;
+}
+
+.card__container{
+    width: 99%;
+    margin: 0 auto;
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(4,1fr);
+    gap: 20px;
+    grid-template-areas: 
+    ".      card1   .    "
+    "card2  card1   card3"
+    "card2  card4   card3"
+    ".      card4   .   ";
+}
+
+.card__item{
+    padding: 20px;
+    background: #fff;
+    border-top: 5px solid #19191a;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card__img{
+    background: var(--color-primary);
+    margin-top: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__title{
+    margin: 20px 0;
+    font-size: 1.5rem;
+}
+
+.card__paragraph{
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.card__item:nth-last-of-type(1){
+    grid-area: card1;
+}
+
+.card__item:nth-last-of-type(2){
+    grid-area: card2;
+}
+
+.card__item:nth-last-of-type(3){
+    grid-area: card3;
+}
+
+.card__item:nth-last-of-type(4){
+    grid-area: card4;
+}
+
+/* course */
+
+.course{
+    --color-title: #fff;
+    --color-btn: #fff;
+    --text-btn: #1f1f22;
+    color: var(--color-title);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    /* align-items: center; */
+}
+
+.course__about{
+    z-index: 100;
+    align-self: center;
+    width: 97%;
+    margin: 0 auto;
+    padding: 30px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+    background: var(--color-primary);
+    grid-column: 1/4;
+    grid-row: 2/-2;
+}
+
+.course__picture{
+  
+    margin:0;
+    grid-column: 3/-1;
+    grid-row: 1/-1;
+}
+
+.course__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.course__picture--right{
+    grid-column: 1/4;
+}
+
+.course__about--left{
+    grid-column: 3/-1;
+}
+
+/* Footer */
+
+.footer{
+    position: relative;
+    --padding-container: 160px 0 50px ;
+
+}
+
+
+.footer::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background: #fff;
+    top: 0;
+    left: 0;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+
+}
+
+.footer__contact{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    place-items: center;
+    margin-bottom: 30px;
+}
+
+.footer__copy{
+    margin: 20px 0;
+    font-weight: 300;
+}
+
+.footer__social{
+    display: flex;
+    padding-top: 30px;
+    flex-wrap: wrap;
+}
+
+.footer__link{
+    width: 60px;
+    height: 60px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__icon{
+    width: 30px;
+}
+
+
+.footer__picture{
+    margin: 0;
+}
+
+.footer__img{
+    width: 100%;
+}
+
+.footer__copyright{
+    padding-top: 30px;
+    border-top: 2px solid #918484;
+    text-align: center;
+}
+
+.footer__copyright::after{
+    content: " hola@alexcgdesign.com";
+}
+
+@media screen and (max-width:768px){
+    :root{
+        --height-shape:14em;
+    }
+
+    .hero__container{
+        --padding-container: 60px 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 1fr;
+    }
+
+    .hero__img{
+        order: -1;
+        height: 95%;
+    }
+
+    .hero__title{
+        font-size: 3.8rem;
+    }
+
+    /* About */
+
+    .about{
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 1fr;
+        gap: 80px;
+    }
+
+    .about__course{
+        width: 100%;
+    }
+
+    .about__picture{
+        order: -1;
+    }
+
+    .about__img{
+        width: 100%;
+    }
+
+    /* Card */
+
+    .card__container{
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(5,1fr);
+        gap: 15px;
+        grid-template-areas: 
+        "card1      ."
+        "card1  card2"
+        "card3  card2"
+        "card3  card4"
+        ".      card4";
+    }
+
+
+    /* Course */
+
+    .course{
+        grid-template-columns: repeat(6,1fr);
+    }
+
+    .course__about{
+        grid-column: 1/6;
+    }
+
+    .course__about--left{
+        grid-column: 2/-1;
+    }
+
+    .course__picture{
+        grid-column: 2/-1;
+    }
+
+    .course__picture--right{
+        grid-column: 1/6;
+    }
+
+    .footer__contact{
+        grid-template-columns: 1fr;
+    }
+
+    .footer__texts{
+        order: 1;
+        --align-title: center;
+    }
+
+    .footer__social{
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (max-width: 500px){
+    :root{
+        --padding-btn: 20px 0;
+    }
+
+    .hero__container{
+        --padding-container: 45px 0;
+    }
+
+    .hero__texts{
+        text-align: center;
+    }
+
+    .hero__title{
+        font-size: 3rem;
+    }
+
+    .hero__cta{
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .title{
+        font-size: 2rem;
+    }
+
+    .cta{
+        display: block;
+    }
+
+    /* Instructor */
+
+    .instructor{
+        --padding-container: 60px 0;
+    }
+
+    .instructor__container{
+        width: 90%;
+    }
+
+    /* About */
+
+    .about{
+        gap: 40px;
+    }
+
+    .about__course{
+        width: 100%;
+    }
+
+    /* Card */
+
+    .card__container{
+        width: 97%;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4,1fr);
+        grid-template-areas: 
+        "card1"
+        "card2"
+        "card3"
+        "card4";
+    }
+
+    /* Course */
+
+    .course{
+        grid-template-columns: 1fr;
+        --padding-container: 80px 0 30px;
+    }
+
+    .course--modifier{
+        --padding-container:0 0 80px;
+    }
+
+    .course__about{
+        padding: 20px 20px;
+        width: 95%;
+        grid-column: 1/-1;
+        grid-row: 1/-1;
+    }
+
+    .course__picture{
+        display: none;
+    }
+    
+}
+</style>
+<body>
+    
+    <header class="hero">
+
+        <div class="hero__container container">
+
+            <div class="hero__texts">
+                <h1 class="hero__title">Aprende temas de CyT</h1>
+                <p class="hero__copy">Fortalece tus capacidades de CyT en esta web.</p>
+                  
+            </div>
+
+            <img src="assets/girl-illustration.svg" class="hero__img">
+
+        </div>
+
+
+    </header>
+
+    <main class="main">
+
+        <section class="instructor container">
+
+            <div class="instructor__container">
+                <img src="assets/icono.png" class="instructor__img">
+                <h1 class="instructor__name">“Aplicación de una página web en el área de CT para
+                    fortalecer el aprendizaje”</h1>
+                <p class="instructor__paragraph">Lorem ipsum dolor sit amet consectetur, adipisicing elit. In accusantium itaque culpa soluta iste atque, sit ullam error earum cumque? Enim minus explicabo quae. Maiores minus non soluta esse libero.</p>
+            </div>
+
+        </section>
+
+        <section class="about container">
+
+            <div class="about__course">
+                <h2 class="title title--border">¿En que nos ayuda esta página web?</h2>
+
+                <p class="about__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat maiores, illum minus nesciunt commodi optio! Ducimus ipsam beatae assumenda aliquam eveniet blanditiis voluptate nisi, consequuntur quasi! Voluptatibus eligendi blanditiis voluptatem.</p>
+
+                <p class="about__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat maiores, illum minus nesciunt commodi optio! Ducimus ipsam beatae assumenda aliquam eveniet blanditiis voluptate nisi, consequuntur quasi! Voluptatibus eligendi blanditiis voluptatem.</p>
+
+                
+            </div>
+
+            <figure class="about__picture">
+                <img src="assets/mockup.svg" class="about__img">
+            </figure>
+
+        </section>
+
+        <section class="card">
+            <div class="container">
+
+                <h2 class="title">Aprende los temas más importantes</h2>
+                <p class="card__copy">Estos son los temas más importantes que debes conocer en CyT</p>
+
+                <div class="card__container">
+
+                    <div class="card__item">
+                        <figure class="card__img">
+                            <img src="assets/bxs-grid.svg" class="card__picture">
+                        </figure>
+                        <h3 class="card__title">La Celula</h3>
+                        <p class="card__paragraph">La célula es el componente básico de todos los seres vivos. El cuerpo humano está compuesto por billones de células. Le brindan estructura al cuerpo, absorben los nutrientes de los alimentos, convierten estos nutrientes en energía y realizan funciones especializadas.</p>
+                         <a href="web2.html" class="cta">AQUI</a>
+                    
+                    </div>
+
+                    <div class="card__item">
+                        <figure class="card__img">
+                            <img src="assets/bx-layout.svg" class="card__picture">
+                        </figure>
+                        <h3 class="card__title">CSS GRID</h3>
+                        <p class="card__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, quam obcaecati amet officiis numquam quia omnis? Dolorem, accusantium recusandae deserunt voluptatem quos quam quisquam dolorum nisi omnis vero, vel nesciunt?</p>
+                        <a href="web3.html" class="cta">AQUI</a>
+                    
+                    </div>
+
+                    <div class="card__item">
+                        <figure class="card__img">
+                            <img src="assets/bx-code.svg" class="card__picture">
+                        </figure>
+                        <h3 class="card__title">CSS GRID</h3>
+                        <p class="card__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, quam obcaecati amet officiis numquam quia omnis? Dolorem, accusantium recusandae deserunt voluptatem quos quam quisquam dolorum nisi omnis vero, vel nesciunt?</p>
+                        <a href="web4.html" class="cta">AQUI</a>
+                    
+                    </div>
+                    
+                    <div class="card__item">
+                        <figure class="card__img">
+                            <img src="assets/bxl-css3.svg" class="card__picture">
+                        </figure>
+                        <h3 class="card__title">CSS GRID</h3>
+                        <p class="card__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, quam obcaecati amet officiis numquam quia omnis? Dolorem, accusantium recusandae deserunt voluptatem quos quam quisquam dolorum nisi omnis vero, vel nesciunt?</p>
+                        <a href="web5.html" class="cta">AQUI</a>
+                    
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="course container">
+
+            <figure class="course__picture">
+                <img src="assets/web1.jpg" class="course__img">
+            </figure>
+
+            <div class="course__about">
+                <h2 class="title">¿De qué trata este curso?</h2>
+                <p class="about__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum enim officiis perspiciatis cumque, hic at magni sunt quo earum, laborum labore, doloremque dolores recusandae alias consectetur similique! Temporibus, error molestias!</p>
+                <a href="juego.html" class="cta">Prueba tus conocimientos</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+
+            <div class="footer__contact">
+                <div class="footer__texts">
+                    <h2 class="title">¿Tienes algunda duda?</h2>
+                    <p class="footer__copy">Si tienes alguna duda, puedes conctarme en cualquiera de mis redes sociales</p>
+
+                    <div class="footer__social">
+                        <a href="#" class="footer__link">
+                           <img src="assets/bxl-facebook.svg" class="footer__icon">
+                        </a>
+                        <a href="#" class="footer__link">
+                           <img src="assets/bxl-twitter.svg" class="footer__icon">
+                  
+                        <a href="#" class="footer__link">
+                           <img src="assets/bxl-instagram.svg" class="footer__icon">
+                        </a>
+                    </div>
+                </div>
+
+                <figure class="footer__picture">
+                    <img src="assets/message-ilustration.svg" class="footer__img">
+                </figure>
+            </div>
+
+          
+        </div>
+    </footer>
+
+</body>
+</html>
